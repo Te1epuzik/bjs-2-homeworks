@@ -1,6 +1,6 @@
 "use strict"
 function solveEquation(a, b, c) {
-  let arr = [];
+  let arr = [1];
   
   return arr;
 }
