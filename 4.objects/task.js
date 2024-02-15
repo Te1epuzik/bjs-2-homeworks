@@ -18,8 +18,7 @@ Student.prototype.addMarks = function (...marks) {
 Student.prototype.getAverage = function () {
 	let marksAvg = 0;
 	if (("marks" in this) && (this.marks instanceof Array) && (this.marks.length !== 0)) {
-		let marksSum = 0;
-		this.marks.forEach(mark => marksSum += mark);
+		let marksSum = this.marks.reduce((sum, mark) => sum + mark, 0)
 		marksAvg = marksSum / this.marks.length;
 	};
 	return marksAvg;
@@ -30,4 +29,3 @@ Student.prototype.exclude = function (reason) {
 	delete this.subject;
 	this.excluded = reason;
 }
-
