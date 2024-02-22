@@ -8,28 +8,24 @@ class PrintEditionItem {
 	}
 
 	fix() {
-		let newState = this.state * 1.5;
-		if (newState < 0) {
-			this.state = 0;
-		} else if (newState > 100) {
-			this.state = 100;
-		} else {
-			this.state = newState;
-		}
+		this.state = this.state * 1.5;
 	}
 
-	set setState(state) {
+	set state(state) {
 		if (state < 0) {
-			this.state = 0;
+			// this.state = 0;
+			this._state = 0;
 		} else if (state > 100) {
-			this.state = 100;
+			// this.state = 100;
+			this._state = 100;
 		} else {
-			this.state = state;
+			// this.state = state;
+			this._state = state;
 		}
 	}
 
-	get getState() {
-		return this.state;
+	get state() {
+		return this._state;
 	}
 }
 
