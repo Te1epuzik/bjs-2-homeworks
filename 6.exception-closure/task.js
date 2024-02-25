@@ -9,7 +9,7 @@ function validateCount(productQuantity) {
 	try {
 		return parseCount(productQuantity);
 	} catch (invalidCount) {
-		return error;
+		return invalidCount;
 	}
 }
 
@@ -29,7 +29,7 @@ class Triangle {
 
 	get area() {
 		let p = (this.aSide + this.bSide + this.cSide) / 2;
-		return Math.sqrt(p * (p - this.aSide) * (p - this.bSide) * (p - this.cSide));
+		return +toFixed(Math.sqrt(p * (p - this.aSide) * (p - this.bSide) * (p - this.cSide)));
 	}
 }
 
