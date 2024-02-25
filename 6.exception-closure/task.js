@@ -29,7 +29,7 @@ class Triangle {
 
 	get area() {
 		let p = (this.aSide + this.bSide + this.cSide) / 2;
-		return +toFixed(Math.sqrt(p * (p - this.aSide) * (p - this.bSide) * (p - this.cSide)));
+		return +Math.sqrt(p * (p - this.aSide) * (p - this.bSide) * (p - this.cSide)).toFixed(3);
 	}
 }
 
