@@ -31,15 +31,33 @@ class AlarmClock {
 	}
 
 	start() {
-		if (this.intervalId != null) {
-			this.intervalId = () => {
+		if (this.intervalId == null) {
+			this.intervalId = setInterval(() => {
 				this.alarmCollection.forEach(timer => {
 					if (timer.canCall === true && timer.time === getCurrentFormattedTime()) {
 						timer.canCall = false;
 						timer.callback();
 					}
-				})
-			}
+				});
+			});
+		} else {
+			return;
 		}
+	}
+
+	stop() {
+		clearInterval(this.intervalId);
+		this.intervalId = null;
+	}
+
+	resetAllCalls() {
+		if (this.alarmCollection.length !== 0) {
+			this.alarmCollection.forEach(timer => timer.canCall = true);
+		}
+	}
+
+	clearAlarms() {
+		this.stop();
+		this.alarmCollection = [];
 	}
 }
